@@ -1,5 +1,5 @@
 ﻿from character import Character
-from berserk import Berserk
+from samurai import Samurai
 
 def attack_message(attacker: Character, target: Character, damage_done: float) :
     return f'{attacker.name} атакував {target.name}.\n' \
@@ -7,8 +7,8 @@ def attack_message(attacker: Character, target: Character, damage_done: float) :
            f'У {target.name} залишилося {target.health} здоров`я.'
 
 
-player1 = Character('Vasya', 100, 25, 50)
-player2 = Berserk('Petya.Berserk', 100, 10, 12)
+player1 = Character('Vasya', 100, 10, 12)
+player2 = Samurai('Tanjiro', 100, 10, 12)
 
 print(f'Створено нового персонажа: {player1.name}')
 print(f'Створено нового персонажа: {player2.name}')
@@ -23,6 +23,7 @@ while player1.is_alive() and player2.is_alive():
 
     damage_done = player2.attack(player1)
     print(attack_message(player2, player1, damage_done))
+    player2.show_stats()
 
 print(f'Обмін ударів :{count}')
 print(f'{player1}\n{player2}')
